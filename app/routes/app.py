@@ -45,7 +45,7 @@ user = APIRouter()
 
 
 @user.get('/')
-async def github_login():
+async def home():
     """
     This is the home page, it just shows a message
     """
