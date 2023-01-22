@@ -45,12 +45,12 @@ user = APIRouter()
 
 
 @user.get('/')
-async def github_login():
+async def home():
     """
     This is the home page, it just shows a message
     """
     return "Welcome to Wolf and Badger app please to login go here: ->  " \
-           "https://wolf-and-badger-profile-app.herokuapp.com//github-login "
+           "https://wolf-and-badger-profile-app.herokuapp.com//github-login"
 
 
 @user.get('/github-login')
@@ -118,7 +118,7 @@ async def user_info(session_data: SessionData = Depends(verifier)):
     if client.testingwb.profile.find_one({"account_id": id}):
         # retrieve and serialize the user's profile data
         data = serializeDict(client.testingwb.profile.find_one({"account_id": id}))
-        return f"Here is the info for your user: {data}"
+        return data
     else:
         return "The user does not exist"
 
@@ -171,10 +171,6 @@ async def delete_user(session_data: SessionData = Depends(verifier)):
     id = session_data.account_id
     # delete the user's profile from the database
     client.testingwb.profile.find_one_and_delete({"account_id": id})
-    # delete the session
-    await backend.delete(session_id)
-    # delete the cookie
-    cookie.delete_from_response(response)
     return f'Your user: {session_data} was successfully deleted from Wolf & Badger Data base and you are logged Out'
 
 
