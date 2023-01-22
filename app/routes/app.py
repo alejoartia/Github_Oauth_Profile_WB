@@ -49,7 +49,8 @@ async def github_login():
     """
     This is the home page, it just shows a message
     """
-    return "Welcome to Wolf and Badger app please to login go here: ->  http://0.0.0.0:15400/github-login"
+    return "Welcome to Wolf and Badger app please to login go here: ->  " \
+           "https://wolf-and-badger-profile-app.herokuapp.com//github-login "
 
 
 @user.get('/github-login')
