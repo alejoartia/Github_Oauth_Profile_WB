@@ -11,13 +11,14 @@ from app.schemas.helpers import request_to_github, validate_form
 from app.schemas.user import serializeDict
 from app.config.db import client
 from datetime import date
+from app.config.settings import settings
 
 # Configure cookie settings for session management
 cookie_params = CookieParameters()
 
 # GitHub API credentials
-github_client_id = '19b58fbb34b1d2450c16'
-github_client_secret = 'e4fbd05087fee0077bd32025ebddc8d0cda78451'
+github_client_id = settings.github_client_id
+github_client_secret = settings.github_client_secret
 
 # Uses UUID Create a session cookie for session management
 cookie = SessionCookie(
@@ -43,12 +44,20 @@ verifier = BasicVerifier(
 user = APIRouter()
 
 
+@user.get('/')
+async def github_login():
+    """
+    This is the home page, it just shows a message
+    """
+    return "Welcome to Wolf and Badger app please to login go here: ->  http://0.0.0.0:15400/github-login"
+
+
 @user.get('/github-login')
 async def github_login():
     """
     Redirect the user to the GitHub OAuth authorization page.
     """
-    return RedirectResponse(f'https://github.com/login/oauth/authorize?client_id={github_client_id}', status_code=302)
+    return RedirectResponse(f'{settings.login_url}{github_client_id}', status_code=302)
 
 
 @user.get('/github-code')

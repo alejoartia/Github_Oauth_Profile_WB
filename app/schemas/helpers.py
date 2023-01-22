@@ -1,4 +1,5 @@
 import httpx
+from app.config.settings import settings
 
 
 async def request_to_github(github_client_id, github_client_secret, code):
@@ -12,14 +13,14 @@ async def request_to_github(github_client_id, github_client_secret, code):
     }
     headers = {'Accept': 'application/json'}
     async with httpx.AsyncClient() as Requestclient:
-        res = await Requestclient.post(url='https://github.com/login/oauth/access_token', params=params,
+        res = await Requestclient.post(url=f'{settings.token_url}', params=params,
                                        headers=headers)
     response_json = res.json()
     access_token = response_json['access_token']
     headers.update({'Authorization': f'Bearer {access_token}'})
 
     async with httpx.AsyncClient() as Requestclient:
-        res = await Requestclient.get(url='https://api.github.com/user', headers=headers)
+        res = await Requestclient.get(url=f'{settings.user_url}', headers=headers)
         profile = res.json()
 
     return profile, access_token
