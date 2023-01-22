@@ -3,8 +3,11 @@ This repository contains an application that allows user authentication using th
 
 
 #### ...IMPORTANT: 
-- First loggin in the browser /github-login to create a session then go to: /docs
-![alt text](https://github.com/alejoartia/Github_Oauth_Profile_WB/tree/main/Docs/docs.png)
+- First Log In in the browser /github-login to create a session then go to: /docs
+
+![](Docs/docs.png)
+
+
 
 
 ## Setup
