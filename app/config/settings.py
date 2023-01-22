@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     login_url: str = Field("https://github.com/login/oauth/authorize?client_id=", env="LOGIN_URL")
     token_url: str = Field("https://github.com/login/oauth/access_token", env="TOKEN_URL")
     user_url: str = Field("https://api.github.com/user", env="USER_URL")
-    github_client_id: str = Field("", env="GITHUB_CLIENT_ID")
-    github_client_secret: str = Field("", env="GITHUB_CLIENT_SECRET")
+    github_client_id: str = Field("19b58fbb34b1d2450c16", env="GITHUB_CLIENT_ID")
+    github_client_secret: str = Field("e4fbd05087fee0077bd32025ebddc8d0cda78451", env="GITHUB_CLIENT_SECRET")
     mongo_db_connectio_string: str = Field(
         "mongodb+srv://wolfandbadger:adminpass@wolfandbadger.z7uhqro.mongodb.net/?retryWrites=true&w=majority",
         env="MONGO_DB_CONNECTION_STRING "
