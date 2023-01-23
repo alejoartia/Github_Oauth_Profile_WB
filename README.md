@@ -10,12 +10,16 @@ This repository contains an application that allows user authentication using th
 
 
 
-## Setup
-Before running the application, make sure you have the following installed:
+## Setup - easy way to run it 
+- Create a virtual environment in the root of the project by running the following command:
+``` python -m venv venv  ```
+- Activate the virtual environment:
+``` source venv/bin/activate ```
+- Install the required packages listed in the requirements.txt file by running:
+``` pip install -r requirements.txt ```
+- Run the application using Uvicorn by running the following command:
+``` uvicorn app.index:app --host 0.0.0.0 --port 15400 --reload ```
 
-- Python 3.x
-- virtualenv (or pipenv/poetry)
-- Docker (if running with docker-compose)
 
 ## Execution: 
 
