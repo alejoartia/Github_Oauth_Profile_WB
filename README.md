@@ -22,7 +22,7 @@ This repository contains an application that allows user authentication using th
 
 ### To run with docker compose.  be sure you have docker installed:
   - be sure you are in the main branch
-  - docker-compose up -d 
+    - ``` docker-compose up -d ```
 
 ### You will be also to see the app deployed at:
 
