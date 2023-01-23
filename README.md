@@ -12,24 +12,13 @@ This repository contains an application that allows user authentication using th
 
 ## Setup - easy way to run it 
 - Create a virtual environment in the root of the project by running the following command:
-``` python -m venv venv  ```
+  - ``` python -m venv venv  ```
 - Activate the virtual environment:
-``` source venv/bin/activate ```
+  - ``` source venv/bin/activate ```
 - Install the required packages listed in the requirements.txt file by running:
-``` pip install -r requirements.txt ```
+  - ``` pip install -r requirements.txt ```
 - Run the application using Uvicorn by running the following command:
-``` uvicorn app.index:app --host 0.0.0.0 --port 15400 --reload ```
-
-
-## Execution: 
-
-### to run it locally , in the root of you project:
-
-  - in the root path of the project
-  - create virtual environment:
-  - be sure you are in the 'main' branch
-  - run:
-    uvicorn app.index:app --host 0.0.0.0 --port 15400 --reload
+  - ``` uvicorn app.index:app --host 0.0.0.0 --port 15400 --reload ```
 
 ### To run with docker compose.  be sure you have docker installed:
   - be sure you are in the main branch
